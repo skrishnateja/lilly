@@ -1,0 +1,38 @@
+body {
+	margin: 0px;
+}
+.navbar {
+	height: 50px;
+	background-color: #7CCF53;
+	position: fixed;
+	width: 100%;
+}
+.nav-container {
+	width: 90%;
+	margin: 0 auto;
+}
+.item {
+	display: inline;
+}
+.logo {
+	width: 100px;
+	background-color: red;
+}
+.search {
+	width: 50%;
+}
+.name {
+	width: 100px;
+}
+.home {
+	width: 100px;
+}
+.menu {
+	width: 100px;
+}
+.settings {
+	width: 100px;
+}
+.logout {
+	width: 100px;
+}

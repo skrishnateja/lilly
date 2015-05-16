@@ -1,0 +1,39 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="posts index">
+  <h2>posts</h2>
+
+  <%= link_to("Add New post", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="post list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>post ID</th>
+      <th>details</th>
+      <th>user</th>
+      <th>privacy</th>
+      <th>Actions</th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.content %></td>
+      <td><% post.user.friends.each do |fri| %>
+      <%= fri.first_name %>
+      <% end %>
+      </td>
+      <td><%= post.privacy %></td>
+      
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => post.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => post.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => post.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

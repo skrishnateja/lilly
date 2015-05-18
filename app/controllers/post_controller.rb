@@ -12,7 +12,7 @@ class PostController < ApplicationController
   end
 
   def new
-    @post = Post.new({:name => "Default"})
+    @post = Post.new({:user_id => "Default"})
   end
 
   def create

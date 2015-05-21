@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   resources :statuses
+
+  root to: 'statuses#index'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

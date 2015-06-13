@@ -17,14 +17,37 @@
 				<ul class="nav navbar-nav">
 					<li><%= link_to "All Statuses", statuses_path %></li>
 					</ul>
+          <ul class="nav navbar-nav pull-right">
+         <% if user_signed_in?  %>
+          <li><%= link_to current_user.first_name, edit_user_registration_path %></li>
+          <li><%= link_to "logout", signout_path %></li>            
+          <% else %>
+          <li><%= link_to "sign up", register_path %></li>
+          <li><%= link_to "login", login_path %></li>
+          <% end %>
+          </ul>
 			</div>
     </div>
     </div></nav>
 
 	<div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+   <% if flash[:notice] %>
+   <div class="alert alert-info">
+   <button class="close" data-dismiss="alert">x</button>
+     <%= flash[:notice] %>
+     </div>
+   <% end %>
+   <% if flash[:error] %>
+   <div class="alert alert-danger">
+   <button class="close" data-dismiss="alert">x</button>
+     <%= flash[:error] %>
+     </div>
+   <% end %>
+   <% if flash[:alert] %>
+   <div class="alert alert-success">
+   <button class="close" data-dismiss="alert">x</button>
+     <%= flash[:alert] %></div>
+   <% end %>  
 		<%= yield %>
 	</div>
 </body>
